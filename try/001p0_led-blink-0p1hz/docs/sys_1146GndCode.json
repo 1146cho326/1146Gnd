@@ -1,0 +1,153 @@
+{
+  "header": {
+
+    "caution": "This_JSON_not_used",
+
+    "type": "osd_root_header",
+    "format_version": "0.5-draft",
+    "source_format_version": "0.5-draft",
+    "policy": {
+      "address_policy": "human_readable_symbolic_address",
+      "list_policy": "list_is_header_then_items_no_entries_key",
+      "grain_policy": "addGrMod_and_addGrMemSys_and_addGrMemWork_have_no_header",
+      "runtime_policy": "dispatch_only_ignore_if_not_idle",
+      "module_io_policy": ""
+    },
+    
+    "terminology": {
+
+      "grain": "粒",
+      "_table": "_テーブル",
+
+      "atom": "原子",
+      "molecule": "分子",
+      "_system": "_システムメモリ",
+      "_working": "_作業用メモリ",
+      "scoop": "掬",
+      "drop": "落",
+
+      "block": "塊",
+
+      "run": "処理",
+      "branch": "分岐",
+
+      "port": "穴",
+      "wire": "線",
+      "diff_map": "差分地図"
+
+    },
+
+    "address_for_human_name": {
+      "addGrain": "for_Python_Memory_and_Module_name",
+      "addAMB": "for_Atom_and_Molecule_and_Block_name",
+      "addBranch": "for_BranchTable_name",
+      "addMemory": "for_Memory_system_working_scoop_and_drop_name",
+      "addNop": "for_comment_to_human"
+    },
+
+    "memory_type":{
+      "u64": "u64",
+      "u32": "u32",
+      "u1": "u1",
+      "enum": "enum"
+    },
+
+    "address_type_name": {
+      "mod": "python_module",
+      "sys": "python_memory_operating_system_memories",
+      "mem": "python_memory_working_memories",
+      "scoop": "output_memories",
+      "drop": "input_memories",
+      "branch": "branch_table",
+      "atom": "atom",
+      "molecule": "molecule",
+      "block": "block"
+    },
+
+    "address_composition_name": {
+      "address_composition_name": [
+        "address_for_human_name",
+        "address_type_name",
+        "atom_or_molecule_or_block_name",
+        "atom_or_molecule_or_block_function_name"
+      ]
+    },
+
+    "name_wild_card": {
+      "wc": "name_wild_card"
+    },
+    "name_reserved_or_not_used": {
+      "res" : "reserved_for_name"
+    },
+
+    "atom_or_molecule_composition_names": {
+      "atom_or_molecule_composition_names": [
+        "header_reserved",
+
+        "operating",
+        "init",
+        "idle",
+
+        "run",
+        "branch",
+
+        "delete",
+
+        "sys",
+        "mem",
+        "scoop",
+        "drop"
+      ]
+    },
+
+    "atom_molecule_system_memories": {
+      "atom_molecule_system_memories": [
+        "state",
+        "idle_to_run_fg",
+        "branch_table_num"
+      ]
+    },
+
+    "for_value_type_enum": {
+      "enum_system_memory_state_type": [
+        "header_reserved",
+        "enum_created",
+        "enum_initialized",
+        "enum_idle",
+        "enum_running",
+        "enum_branching",
+        "enum_deleted"
+      ]
+    }
+
+  },
+
+  "JSON_Code_is_made_up_of_the_following_keywords": {
+    "for_value_type_enum": {
+      "enum_off_on_type": [
+        "header_reserved",
+        "off",
+        "on"
+      ]
+    },
+    "atom_names": {
+      "atom_names": [
+        "header_reserved",
+        "clock_tick",
+        "blink_pattern",
+        "led_driver"
+      ]
+    },
+    "molecule_names": {
+      "molecule_names": [
+        "header_reserved"
+      ]
+    },
+    "block_names": {
+      "block_names": [
+        "header_reserved"
+      ]
+    }
+
+  }
+}

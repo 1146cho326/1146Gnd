@@ -1,0 +1,175 @@
+/Users/cho/Documents/20260404-Slidev-d/e/led-blink-pro-e/_py030/led_blink_memory_map.txt
+
+"header_reserved":                              "header_reserved"
+
+"addGrain.mod.clock.tick_run":                  led_blink_modules.clock_tick_run_main
+"addGrain.mod.blink.pattern_run":               led_blink_modules.blink_pattern_run_main
+"addGrain.mod.led.driver_run":                  led_blink_modules.led_driver_run_main
+"addGrain.mod.wc.dummy":                        led_blink_modules.wc_wc_dummy
+
+
+"addGrain.sys.clock_tick.state":                atom_table["clock_tick"]["sys"]["state"]
+"addGrain.sys.clock_tick.idle_to_run_fg":       atom_table["clock_tick"]["sys"]["idle_to_run_fg"]
+"addGrain.sys.clock_tick.branch_table_num":     atom_table["clock_tick"]["sys"]["branch_table_num"]
+"addGrain.sys.clock_tick.next_state":           atom_table["clock_tick"]["sys"]["next_state"]
+"addGrain.sys.clock_tick.branch_to_addAMB":     atom_table["clock_tick"]["sys"]["branch_to_addAMB"]
+
+"addGrain.sys.blink_pattern.state":             atom_table["blink_pattern"]["sys"]["state"]
+"addGrain.sys.blink_pattern.idle_to_run_fg":    atom_table["blink_pattern"]["sys"]["idle_to_run_fg"]
+"addGrain.sys.blink_pattern.branch_table_num":  atom_table["blink_pattern"]["sys"]["branch_table_num"]
+"addGrain.sys.blink_pattern.next_state":        atom_table["blink_pattern"]["sys"]["next_state"]
+"addGrain.sys.blink_pattern.branch_to_addAMB":  atom_table["blink_pattern"]["sys"]["branch_to_addAMB"]
+
+"addGrain.sys.led_driver.state":                atom_table["led_driver"]["sys"]["state"]
+"addGrain.sys.led_driver.idle_to_run_fg":       atom_table["led_driver"]["sys"]["idle_to_run_fg"]
+"addGrain.sys.led_driver.branch_table_num":     atom_table["led_driver"]["sys"]["branch_table_num"]
+"addGrain.sys.led_driver.next_state":           atom_table["led_driver"]["sys"]["next_state"]
+"addGrain.sys.led_driver.branch_to_addAMB":     atom_table["led_driver"]["sys"]["branch_to_addAMB"]
+
+
+"addGrain.mem.clock_tick.span_msec":            atom_table["clock_tick"]["mem"]["span_msec"]
+"addGrain.mem.clock_tick.times":                atom_table["clock_tick"]["mem"]["times"]
+"addGrain.mem.clock_tick.times_current":        atom_table["clock_tick"]["mem"]["times_current"]
+"addGrain.mem.clock_tick.tick_500ms":           atom_table["clock_tick"]["mem"]["tick_500ms"]
+"addGrain.mem.clock_tick.next_wakeup_time_ms":  atom_table["clock_tick"]["mem"]["next_wakeup_time_ms"]
+
+"addGrain.mem.blink_pattern.tick_500ms_is_used": atom_table["blink_pattern"]["mem"]["tick_500ms_is_used"]
+"addGrain.mem.blink_pattern.led_state":         atom_table["blink_pattern"]["mem"]["led_state"]
+"addGrain.mem.blink_pattern.requested_output":  atom_table["blink_pattern"]["mem"]["requested_output"]
+
+
+"addAMB.atom.clock_tick.res":                   "header_reserved"
++1:(operating)                                  "addGrain.mod.wc.dummy"
++2:(init)                                       "addGrain.mod.wc.dummy"
++3:(idle)                                       "addGrain.mod.wc.dummy"
++4:(run)                                        "addGrain.mod.clock_tick.run"
++5:(branch)                                     "addBranch.branch.clock_tick.res"
++6:(delete)                                     "addGrain.mod.wc.dummy"
++7:(sys)                                        "addMemory.sys.clock_tick.res"
++8:(mem)                                        "addMemory.mem.clock_tick.res"
++9:(scoop)                                      "addMemory.scoop.clock_tick.res"
++10:(drop)                                      "addMemory.drop.clock_tick.res"
+
+"addAMB.atom.blink_pattern.res":                "header_reserved"
++1:(operating)                                  "addGrain.mod.wc.dummy"
++2:(init)                                       "addGrain.mod.wc.dummy"
++3:(idle)                                       "addGrain.mod.wc.dummy"
++4:(run)                                        "addGrain.mod.blink_pattern.run"
++5:(branch)                                     "addBranch.branch.blink_pattern.res"
++6:(delete)                                     "addGrain.mod.wc.dummy"
++7:(sys)                                        "addMemory.sys.blink_pattern.res"
++8:(mem)                                        "addMemory.mem.blink_pattern.res"
++9:(scoop)                                      "addMemory.scoop.blink_pattern.res"
++10:(drop)                                      "addMemory.drop.blink_pattern.res"
+
+"addAMB.atom.led_driver.res":                   "header_reserved"
++1:(operating)                                  "addGrain.mod.wc.dummy"
++2:(init)                                       "addGrain.mod.wc.dummy"
++3:(idle)                                       "addGrain.mod.wc.dummy"
++4:(run)                                        "addGrain.mod.led_driver.run"
++5:(branch)                                     "addBranch.branch.led_driver.res"
++6:(delete)                                     "addGrain.mod.wc.dummy"
++7:(sys)                                        "addMemory.sys.led_driver.res"
++8:(mem)                                        "addMemory.mem.led_driver.res"
++9:(scoop)                                      "addMemory.scoop.led_driver.res"
++10:(drop)                                      "addMemory.drop.led_driver.res"
+
+
+"addBranch.branch.clock_tick.res":              "header_reserved"
++1:                                             "addAMB.atom.blink_pattern.res"
+
+"addBranch.branch.blink_pattern.res":           "header_reserved"
++1:                                             "addAMB.atom.led_driver.res"
+
+"addBranch.branch.led_driver.res":              "header_reserved"
+
+
+"addMemory.sys.clock_tick.res":                 "header_reserved"
++1:                                             "addGrain.sys.clock_tick.state"
++2:                                             "addGrain.sys.clock_tick.idle_to_run_fg"
++3:                                             "addGrain.sys.clock_tick.branch_table_num"
++4:                                             "addGrain.sys.clock_tick.next_state"
++5:                                             "addGrain.sys.clock_tick.branch_to_addAMB"
+
+"addMemory.sys.blink_pattern.res":              "header_reserved"
++1:                                             "addGrain.sys.blink_pattern.state"
++2:                                             "addGrain.sys.blink_pattern.idle_to_run_fg"
++3:                                             "addGrain.sys.blink_pattern.branch_table_num"
++4:                                             "addGrain.sys.blink_pattern.next_state"
++5:                                             "addGrain.sys.blink_pattern.branch_to_addAMB"
+
+"addMemory.sys.led_driver.res":                 "header_reserved"
++1:                                             "addGrain.sys.led_driver.state"
++2:                                             "addGrain.sys.led_driver.idle_to_run_fg"
++3:                                             "addGrain.sys.led_driver.branch_table_num"
++4:                                             "addGrain.sys.led_driver.next_state"
++5:                                             "addGrain.sys.led_driver.branch_to_addAMB"
+
+
+"addMemory.mem.clock_tick.res"                  "header_reserved"
++1:                                             "addGrain.mem.clock_tick.span_msec"
++2:                                             "addGrain.mem.clock_tick.times"
++3:                                             "addGrain.mem.clock_tick.times_current"
++4:                                             "addGrain.mem.clock_tick.tick_500ms"
++5:                                             "addGrain.mem.clock_tick.next_wakeup_time_ms"
+
+"addMemory.mem.blink_pattern.res":              "header_reserved"
++1:                                             "addGrain.mem.blink_pattern.tick_500ms_is_used"
++2:                                             "addGrain.mem.blink_pattern.led_state"
++3:                                             "addGrain.mem.blink_pattern.requested_output"
+
+"addMemory.mem.led_driver.res":                 "header_reserved"
+
+
+"addMemory.scoop.clock_tick.res":               "header_reserved"
++1:                                             "addGrain.mem.clock_tick.tick_500ms"
+
+"addMemory.scoop.blink_pattern.res":            "header_reserved"
++1:                                             "addGrain.mem.blink_pattern.tick_500ms_is_used"
++2:                                             "addGrain.mem.blink_pattern.requested_output"
+
+"addMemory.scoop.led_driver.res":               "header_reserved"
+
+
+"addMemory.drop.clock_tick.res":                "header_reserved"
++1:                                             "addGrain.mem.blink_pattern.tick_500ms_is_used"
+
+"addMemory.drop.blink_pattern.res":             "header_reserved"
++1:                                             "addGrain.mem.clock_tick.tick_500ms"
+
+"addMemory.drop.led_driver.res":                "header_reserved"
++1:                                             "addGrain.mem.blink_pattern.requested_output"
+
+
+"addMemory.sys.clock_tick.init???":             "header_reserved"
++1:(state)                                      "enum_idle"
++2:(idle_to_run_fg)                             1
++3:(branch_table_num)                           null
++4:(next_state)                                 "idle"
++5:(branch_to_addAMB)                           ""
+
+"addMemory.sys.blink_pattern.init???":          "header_reserved"
++1:(state)                                      "enum_idle"
++2:(idle_to_run_fg)                             0
++3:(branch_table_num)                           null
++4:(next_state)                                 "idle"
++5:(branch_to_addAMB)                           ""
+
+"addMemory.sys.led_driver.init???":             "header_reserved"
++1:(state)                                      "enum_idle"
++2:(idle_to_run_fg)                             0
++3:(branch_table_num)                           null
++4:(next_state)                                 "idle"
++5:(branch_to_addAMB)                           ""
+
+"addMemory.mem.clock_tick.init???":             "header_reserved"
++1:(span_msec)                                  5000
++2:(times)                                      10
++3:(times_current)                              0
++4:(tick_500ms)                                 0
++5:(next_wakeup_time_ms)                        0
+
+"addMemory.mem.blink_pattern.res":              "header_reserved"
++1:(tick_500ms_is_used)                         0
++2:(led_state)                                  "off"
++3:(requested_output)                           "off"

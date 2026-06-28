@@ -1,0 +1,124 @@
+{    
+  "JSON_1146Gnd_Code": {
+    "addAMB_atom_wc_res_table": {
+
+
+      "addAMB.atom.clock_tick.res": [
+        {"header_reserved": "header_reserved"},
+        {"operating": "addGrain.mod.wc.dummy"},
+        {"init": "addGrain.mod.wc.dummy"},
+        {"idle": "addGrain.mod.wc.dummy"},
+
+        {"run": "addGrain.mod.clock_tick.run"},
+        {"branch": {"addBranch.branch.clock_tick.res": [
+          "header_reserved",
+          "addAMB.atom.blink_pattern.res"
+          ]}},
+
+        {"delete": "addGrain.mod.wc.dummy"},
+
+        {"sys": {"addMemory.sys.clock_tick.res": [
+          {"header_reserved": "reserved"},
+          {"addGrain.sys.clock_tick.state": "enum_idle"},
+          {"addGrain.sys.clock_tick.idle_to_run_fg": 1},
+          {"addGrain.sys.clock_tick.branch_table_num": null},
+          {"addGrain.sys.clock_tick.next_state": "idle"},
+          {"addGrain.sys.clock_tick.branch_to_addAMB": ""}
+        ]}},
+        {"mem": {"addMemory.mem.clock_tick.res": [
+          {"header_reserved": "reserved"},
+          {"addGrain.mem.clock_tick.span_msec": 5000},
+          {"addGrain.mem.clock_tick.times": 10},
+          {"addGrain.mem.clock_tick.times_current": 0},
+          {"addGrain.mem.clock_tick.blink_tick": 0},
+          {"addGrain.mem.clock_tick.next_wakeup_time_ms": 0}
+        ]}},
+        {"scoop": {"addMemory.scoop.clock_tick.res": [
+          "header_reserved",
+          "addGrain.mem.clock_tick.blink_tick"
+        ]}},
+        {"drop": {"addMemory.drop.clock_tick.res": [
+          "header_reserved",
+          "addGrain.mem.blink_pattern.blink_tick_is_used"
+        ]}}
+      ],
+
+
+      "addAMB.atom.blink_pattern.res": [
+        {"header_reserved": "header_reserved"},
+        {"operating": "addGrain.mod.wc.dummy"},
+        {"init": "addGrain.mod.wc.dummy"},
+        {"idle": "addGrain.mod.wc.dummy"},
+
+        {"run": "addGrain.mod.blink_pattern.run"},
+        {"branch": {"addBranch.branch.blink_pattern.res": [
+          "header_reserved",
+          "addAMB.atom.led_driver.res"
+          ]}},
+
+        {"delete": "addGrain.mod.wc.dummy"},
+
+        {"sys" : {"addMemory.sys.blink_pattern.res": [
+          {"header_reserved": "reserved"},
+          {"addGrain.sys.blink_pattern.state": "enum_idle"},
+          {"addGrain.sys.blink_pattern.idle_to_run_fg": 0},
+          {"addGrain.sys.blink_pattern.branch_table_num": null},
+          {"addGrain.sys.blink_pattern.next_state": "idle"},
+          {"addGrain.sys.blink_pattern.branch_to_addAMB": ""}
+        ]}},
+        {"mem": {"addMemory.mem.blink_pattern.res": [
+          {"header_reserved": "reserved"},
+          {"addGrain.mem.blink_pattern.blink_tick_is_used": 0},
+          {"addGrain.mem.blink_pattern.led_state": "off"},
+          {"addGrain.mem.blink_pattern.requested_output": "off"}
+        ]}},
+        {"scoop": {"addMemory.scoop.blink_pattern.res": [
+          "header_reserved",
+          "addGrain.mem.blink_pattern.blink_tick_is_used",
+          "addGrain.mem.blink_pattern.requested_output"
+        ]}},
+        {"drop": {"addMemory.drop.blink_pattern.res": [
+          "header_reserved",
+          "addGrain.mem.clock_tick.blink_tick"
+        ]}}
+      ],
+
+
+      "addAMB.atom.led_driver.res": [
+        {"header_reserved": "header_reserved"},
+        {"operating": "addGrain.mod.wc.dummy"},
+        {"init": "addGrain.mod.wc.dummy"},
+        {"idle": "addGrain.mod.wc.dummy"},
+
+        {"run": "addGrain.mod.led_driver.run"},
+        {"branch": {"addBranch.branch.led_driver.res": [
+          "header_reserved"
+          ]}},
+
+        {"delete": "addGrain.mod.wc.dummy"},
+
+        {"sys": {"addMemory.sys.led_driver.res": [
+          {"header_reserved": "reserved"},
+          {"addGrain.sys.led_driver.state": "enum_idle"},
+          {"addGrain.sys.led_driver.idle_to_run_fg": 0},
+          {"addGrain.sys.led_driver.branch_table_num": null},
+          {"addGrain.sys.led_driver.next_state": "idle"},
+          {"addGrain.sys.led_driver.branch_to_addAMB": ""}
+        ]}},
+        {"mem": {"addMemory.mem.led_driver.res": [
+          {"header_reserved": "reserved"}
+        ]}},
+        {"scoop": {"addMemory.scoop.led_driver.res": [
+          "header_reserved"
+        ]}},
+        {"drop": {"addMemory.drop.led_driver.res": [
+          "header_reserved",
+          "addGrain.mem.blink_pattern.requested_output"
+        ]}}
+      ]
+
+
+    }
+
+  }
+}
